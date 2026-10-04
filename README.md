@@ -1,1 +1,0 @@
-# Databazove_technologie
