@@ -3,10 +3,7 @@ WITH ranked_orders AS (
         c.customer_name,
         o.order_id,
         o.order_date,
-        ROW_NUMBER() OVER (
-            PARTITION BY o.customer_id 
-            ORDER BY o.order_date DESC
-        ) AS rn
+        ROW_NUMBER() OVER (PARTITION BY o.customer_id ORDER BY o.order_date DESC) AS rn
     FROM orders o
     JOIN customers c ON o.customer_id = c.customer_id
 )
